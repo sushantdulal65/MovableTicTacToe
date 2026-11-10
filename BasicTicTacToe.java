@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 class BasicTicTacToe {
@@ -11,8 +10,10 @@ class BasicTicTacToe {
         int[] arr = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         int[][] winCom = {{0, 1, 2}, {0, 3, 6}, {0, 4, 8}, {1, 4, 7}, {2, 5, 8}, {2, 4, 6}, {3, 4, 5},
         {6, 7, 8}};
+       
 
         while (true) {
+             int c = 0; // to count the number of 0's to see if it is draw if count is 9
             for (int i = 1; i <= 9; i++) {
                 if (choice == i) {
                     arr[i - 1] = turn;
@@ -29,6 +30,10 @@ class BasicTicTacToe {
                     System.exit(0);
                 }
             }
+            for(int i=0;i<9;i++) if(arr[i]!=0)c=c+1;
+            if(c>=9)
+                {System.out.println("Draw");
+                 System.exit(0);}
             turn = turn % 2 + 1;
             if (turn == 1) {
                 System.out.println("Player 1 Turn"); 
